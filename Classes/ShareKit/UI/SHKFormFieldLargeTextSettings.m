@@ -9,7 +9,7 @@
 #import "SHKFormFieldLargeTextSettings.h"
 
 #import "UIImage+OurBundle.h"
-#import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
+@import SDWebImage;
 
 @interface SHKFormFieldLargeTextSettings ()
 
@@ -48,11 +48,11 @@
             if (self.item.image) {
                 imageView.image = self.item.image;
             } else if (self.item.URLPictureURI) {
-                [imageView setImageWithURL:self.item.URLPictureURI placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+                [imageView setImageWithURL:self.item.URLPictureURI placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"]];
             } else {
                 
                 if (self.item.URLContentType == SHKURLContentTypeImage) {
-                    [imageView setImageWithURL:self.item.URL placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+                    [imageView setImageWithURL:self.item.URL placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"]];
                 } else {
                     imageView.image = [UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"];
                 }
@@ -70,7 +70,7 @@
             }
             
             if (!imageView.image && self.item.URLPictureURI) {
-                  [imageView setImageWithURL:self.item.URLPictureURI placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+                  [imageView setImageWithURL:self.item.URLPictureURI placeholderImage:[UIImage imageNamedFromOurBundle:@"DETweetURLAttachment.png"]];
             } else if (!imageView.image) {
                 self.shouldShowExtension = YES;
                 imageView.image = [UIImage imageNamedFromOurBundle:@"SHKShareFileIcon.png"];
